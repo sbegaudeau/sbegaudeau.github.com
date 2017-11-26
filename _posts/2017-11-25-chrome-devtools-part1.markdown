@@ -28,7 +28,7 @@ You can navigate the DOM with the tree-based view and it will highlight the curr
 
 On the right, in the tab `Styles` the Devtools will display the CSS properties of the selected element. This `Styles` tab will show all the CSS selectors that are used to compute the style of the element. At the bottom of the `Styles` tab, the `Box model` is visible, it shows the size of the element, its padding, border and margin.
 
-<video src="{{ site.baseurl }}/img/posts/2017/11/25/chrome-devtools-part1/box-model.mp4" style="width: 100%;" loop muted autoplay controls></video>
+<video src="{{ site.baseurl }}/img/posts/2017/11/25/chrome-devtools-part1/box-model.mp4" style="width: 100%;" loop muted autoplay controls playsinline></video>
 
 You can double click on this `Box model` to edit its properties. The color used in this illustration of the Box model are also reused on the selected element.
 
