@@ -69,3 +69,5 @@ Test your page on various devices using the button on the left of the `Elements`
 Chrome Devtools has also shipped some support to debug CSS grid layouts. You can now hover over an element in the DOM and Chrome will display the details of the grid in which this element is involved.
 
 <img src="{{ site.baseurl }}/img/posts/2017/11/25/chrome-devtools-part1/elements-grid.png" class="img-fluid img-border">
+
+For more information regarding web development or to be sure not to miss an update, follow me on [twitter](https://www.twitter.com/sbegaudeau).
