@@ -15,9 +15,9 @@ You can find here the list of some of my presentations done in various conferenc
 * [Let Me Sirius That for You: Properties Views](https://www.siriuscon.org/2016/) - SiriusCon, Nov 2016
 * [Sirius 4.1: Let Me Sirius That For You!](https://www.eclipsecon.org/europe2016/session/sirius-41-let-me-sirius-you) - EclipseCon Europe, Nov 2016
 * [Sirius 4.0: Let Me Sirius That For You!](https://www.eclipsecon.org/france2016/session/sirius-40-let-me-sirius-you) - EclipseCon France, Jun 2016
-* [Modern Web Application Development Workflow](https://www.eclipsecon.org/europe2014/session/modern-web-application-development-workflow) - EclipseCon Europe, Oct 2014
+* [Modern Web Application Development Workflow](https://www.eclipsecon.org/europe2014/session/modern-web-application-development-workflow.html) - EclipseCon Europe, Oct 2014
 * [Modern Web Application Development Workflow](http://www.slideshare.net/sbegaudeau/modern-web-application-development-workflow-web2day) - Web2Day, Jun 2014
-* [Modern Web Application Development Workflow](https://www.eclipsecon.org/france2014/session/modern-web-application-development-workflow) - EclipseCon France, Jun 2014
+* [Modern Web Application Development Workflow](https://www.eclipsecon.org/france2014/session/modern-web-application-development-workflow.html) - EclipseCon France, Jun 2014
 * [Modern Web Application Workflow](https://www.eclipsecon.org/na2014/session/modern-web-application-workflow.html) - EclipseCon North America, Mar 2014
 * [Beyond Mylyn, leverage the data of your IDE](https://www.eclipsecon.org/europe2012/sessions/beyond-mylyn-leverage-data-your-ide.html) - EclipseCon Europe, Oct 2012
 * [Creating tools to simplify your application development: The Chrome App example](https://www.eclipsecon.org/2012/sessions/creating-tools-simplify-your-application-development-chrome-app-example.html) - EclipseCon North America, Mar 2012
