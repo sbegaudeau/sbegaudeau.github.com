@@ -22,7 +22,7 @@ The `Network` tab will start to record the network activity when a new request w
 
 The timeline overview shows all network communication over time. It allows you to select a specific portion of time to review all the calls made. Click on a part of the timeline and Chrome will automatically select a small portion of time surrounding the part you clicked. Double click to go back to the full selection. Use your mouse or trackpad to change the selected area by scrolling up, down, left, or right.
 
-<video src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/overview.mp4" style="width: 100%;" loop muted autoplay></video>
+<video src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/overview.mp4" style="width: 100%;" loop muted autoplay playsinline></video>
 
 Two small vertical bars are visible in the timeline, a blue one indicating the time it took for the content of the DOM to be loaded and the red one showing when the page was fully loaded.
 
