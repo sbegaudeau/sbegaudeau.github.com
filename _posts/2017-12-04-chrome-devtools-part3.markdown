@@ -102,6 +102,6 @@ To debug interactions with your server, you can create breakpoints for your XMLH
 
 In a similar fashion, you can add breakpoints on some modifications of the DOM from the `Elements` tab. To analyze the listeners of your application, you will find the list of the global listeners along with a reference to the code used to register them. Finally, Chrome Devtools offer you the ability to add breakpoints for specific events like click, resize, focus in, scroll, etc.
 
-<video src="/img/posts/2017/12/04/chrome-devtools-part3/sources-events.mp4" style="width: 100%;" loop muted autoplay controls></video>
+<video src="{{ site.baseurl }}/img/posts/2017/12/04/chrome-devtools-part3/sources-events.mp4" style="width: 100%;" loop muted autoplay controls></video>
 
 For more information regarding web development or to be sure not to miss an update, follow me on [twitter](https://www.twitter.com/sbegaudeau).

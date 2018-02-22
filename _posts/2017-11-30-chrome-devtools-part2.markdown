@@ -70,7 +70,7 @@ The `Console` allows you to monitor events with `monitorEvents(e, types)` where 
 
 For example with `monitorEvents(document.body, ['click']);`, all clicks will be logged in the `Console`. You can unregister this listener with `unmonitorEvents(document.body, ['click'])`.
 
-<video src="/img/posts/2017/11/30/chrome-devtools-part2/monitor-events.mp4" style="width: 100%;" loop muted autoplay controls></video>
+<video src="{{ site.baseurl }}/img/posts/2017/11/30/chrome-devtools-part2/monitor-events.mp4" style="width: 100%;" loop muted autoplay controls></video>
 
 If you want to have a look at the listeners registered on a specific DOM element, use the function `getEventListeners(e)`. This function will return an object using the types of event as keys and an array of all the listeners found for this event as value.
 
