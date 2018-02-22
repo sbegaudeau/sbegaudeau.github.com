@@ -12,7 +12,7 @@ After our tour of the Chrome Devtools Console, we can now have a look at the `Ne
 
 # General
 
-The `Network` tab is composed of two parts, on top you can find an overview of the timeline where all the requests that have been made can be seen. Below this overview, the `Network` tab shows the details of each request. Finally above the timeline, a toolbar gives you access to additional options. By default, the `Console` is available with additional tools in a drawer at the bottom.
+The `Network` tab is composed of two parts, on top you will find an overview of the timeline where all the requests that have been made can be seen. Below this overview, the `Network` tab shows the details of each request. Finally above the timeline, a toolbar gives you access to additional options. By default, the `Console` is available with additional tools in a drawer at the bottom.
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/network-tab.png" class="img-fluid img-border">
 
@@ -20,7 +20,7 @@ The `Network` tab will start to record the network activity when a new request w
 
 # Timeline Overview
 
-The timeline overview shows all network communication over time. It allows you to select a specific portion of time to review all the calls made. Click on a part of the timeline and Chrome will automatically select a small portion of time surrounding the part you clicked. Double click to go back to the full selection. You can drag your cursor hover the timeline to select a precise portion of time. Use your mouse or trackpad to change the selected area by scrolling up, down, left, or right.
+The timeline overview shows all network communication over time. It allows you to select a specific portion of time to review all the calls made. Click on a part of the timeline and Chrome will automatically select a small portion of time surrounding the part you clicked. Double click to go back to the full selection. Use your mouse or trackpad to change the selected area by scrolling up, down, left, or right.
 
 <video src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/overview.mp4" style="width: 100%;" loop muted autoplay controls></video>
 
@@ -54,15 +54,15 @@ Under the overview, you will see all the requests that have been made. The detai
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/request.png" class="img-fluid img-border">
 
-You can place you cursor over a the waterfall cell of a request to see a more detailled view of each step.
+Place your cursor over the waterfall cell of a request to see a more detailed view of each step.
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/waterfall-popup.png" class="img-fluid img-border">
 
-The columns of the table can be modified by right-clicking on the header of the table.
+Right-click on the header of the table to modify the columns of the table.
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/columns.png" class="img-fluid img-border">
 
-By clicking on a request you can open a panel with all its details. In this panel, you can see all the headers of the request and the response received. You also see the raw content of the response in the `Response` tab and a preview in the `Preview` tab. Most of the time, both tabs will show the same content but for some content types, like JSON, the `Preview` tab will display a structured view of the response instead of the raw text.
+By clicking on a request, you can open a panel with all its details. In this panel, all the headers of the request and the response received are visible. You also see the raw content of the response in the `Response` tab and a preview in the `Preview` tab. Most of the time, both tabs will show the same content but for some content types, like JSON, the `Preview` tab will display a structured view of the response instead of the raw text.
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/request-details.png" class="img-fluid img-border">
 
@@ -74,7 +74,7 @@ In order to debug web socket communication, you will need to identify the HTTP r
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/websocket.png" class="img-fluid img-border">
 
-If you have found a bug in your application, it would be nice to be able to communicate the steps to reproduce the issue to other members of your team. For situations like that, you can export the content of the `Network` tab by right clicking and selecting "save as HAR". You can now attach this har file to an issue of your project and everybody will be able to see all the requests made to reproduce your issue. [HAR viewers](http://www.softwareishard.com/har/viewer/) are also available and you can find the specification of this JSON-based format [online](http://www.softwareishard.com/blog/har-12-spec/).
+If you have found a bug in your application, it would be nice to be able to communicate the steps to reproduce the issue to other members of your team. For situations like that, you can export the content of the `Network` tab by right-clicking and selecting "save as HAR". Attach this har file to an issue of your project and everybody will be able to see all the requests made to reproduce your issue. [HAR viewers](http://www.softwareishard.com/har/viewer/) are also available and you can find the specification of this JSON-based format [online](http://www.softwareishard.com/blog/har-12-spec/).
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/har-viewer.png" class="img-fluid img-border">
 
@@ -84,7 +84,7 @@ Finally, with the contextual menu, you can block a specific request or even a wh
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/toolbar.png" class="img-fluid img-border">
 
-Some advanced options are available thanks to the toolbar on top of the Network overview. With a single click, you can test your web application with the cache disabled or even offline to see if your service workers are doing their job. It is also possible to simulate various quality of internet connectivity with fast 3G, slow 3G and even custom settings.
+Some advanced options are available thanks to the toolbar on top of the Network overview. With a single click, you can test your web application with the cache disabled or even offline to see if your service workers are doing their job. It is also possible to simulate various quality of internet connectivity with fast 3G, slow 3G, and even custom settings.
 
 <img src="{{ site.baseurl }}/img/posts/2018/02/22/chrome-devtools-part4/connectivity.png" class="img-fluid img-border">
 
