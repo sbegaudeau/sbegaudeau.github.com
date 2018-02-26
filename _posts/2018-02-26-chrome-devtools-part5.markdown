@@ -5,7 +5,7 @@ subtitle: "Harder Better Faster Stronger"
 author: "Stéphane Bégaudeau"
 date: 2018-02-26 18:23:57 +0200
 description: "Fifth part of an overview of the Chrome Devtools."
-image: "/img/posts/2018/02/26/chrome-devtools-part5/performance-profile-session.png"
+image: "/img/posts/2018/02/26/chrome-devtools-part5/performance-preview.png"
 alt: "Chrome Devtools - Performance And Memory"
 ---
 In this post, we will see how to detect issues with the user experience of your web application with the `Performance` and `Memory` tabs in the Chrome Devtools.
