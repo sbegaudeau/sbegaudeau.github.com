@@ -17,7 +17,7 @@ title: "sbegaudeau"
 description: "My blog"
 repository: "https://www.github.com/sbegaudeau/sbegaudeau.com"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.sbegaudeau.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 paginate: 5
 
 # Build settings
