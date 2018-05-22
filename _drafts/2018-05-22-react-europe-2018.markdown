@@ -1,0 +1,187 @@
+---
+layout: post
+title:  "React Europe 2018"
+subtitle: "Highlights from the React Europe conference"
+author: "Stéphane Bégaudeau"
+date: 2018-05-22 10:23:57 +0200
+description: "Highlights from the React Europe conference"
+image: "/img/posts/2018/02/22/chrome-devtools-part4/screenshot-preview.png"
+alt: "Highlights from the React Europe conference"
+---
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/react-europe.jpg" class="img-fluid img-border">
+
+Last week, I was lucky enough to attend [React Europe 2018](https://www.react-europe.org/) in Paris, France. It was great to be able to listen to all those React experts for a couple of days and now that this edition of React Europe is in the rear-view mirror, it's time to look back on some of its key moments.
+
+
+## Day One
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/ken-wheeler.jpg" class="img-fluid img-border">
+
+React Europe 2018 kicked off with a keynote from [Ken Wheeler](https://twitter.com/ken_wheeler) on the state of React.
+In his presentation, he showed us the latest features of React.
+He started with React Fiber, the rewrite of React designed from the ground up for asynchronous rendering (more on that on the [Facebook Blog](https://code.facebook.com/posts/1716776591680069/react-16-a-look-inside-an-api-compatible-rewrite-of-our-frontend-ui-library/)).
+He also talked about the features of the [latest release](https://reactjs.org/blog/2018/03/29/react-v-16-3.html) of React with the new lifecycle methods introduced to properly support asynchronous code and the new context API.
+
+Finally we had a look at the new suspense API, first presented by [Dan Abramov at JSConf Iceland 2018](https://www.youtube.com/watch?v=nLF0n9SACd4).
+Suspence is the name of an upcoming React API used to suspend the rendering the application to prevent eagerly showing a loading spinner.
+This is the answer of the React team to fight against the [flash of unnecessary loading state](https://twitter.com/acdlite/status/955390801827135488).
+
+### Improve your applications with animation
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/animations.jpg" class="img-fluid img-border">
+
+After the keynote, [Joshua Comeau](https://twitter.com/JoshWComeau/status/997036500310110208) showed us how to make our React applications even better with motion and interactions. From a [confetti manager](http://the-case-for-whimsy.surge.sh/#/16) to an [email client](https://whimsical-mail-client.surge.sh/), the demonstrations were really impresive. The code is available on Github if you want to see how you can build similar interactions.
+
+<video src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/animations.mp4" style="width: 100%;" loop muted autoplay playsinline></video>
+
+His presentation had great animations which not only looked beautiful but also helped users understand how their data are moving in the application.
+
+### GraphQL + React = ❤️
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/react-apollo.jpg" class="img-fluid img-border">
+
+For me, one of the highlight of this first day was the attendance of Peggy Rayzis from [Apollo](https://www.apollographql.com) who was there to present the latest features which we could use to build GraphQL+React applications.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/react-apollo-next.jpg" class="img-fluid img-border">
+
+She also showed us a [sneak peek of React Apollo v3.0](https://github.com/peggyrayzis/react-europe-apollo) and the support for React Suspense.
+Getting the views of a key player of the Apollo community in person was a priceless experience.
+
+
+### Networked ReactVR application with Redux
+
+With the presentation by [Jim Purbrick](https://twitter.com/JimPurbrick), we have seen how we can build a kickass ReactVR application with Redux.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/reactvr.jpg" class="img-fluid">
+
+In this talk, we had an overview of real-world problems he and his team have faced with the synchronization of the Redux state of various users over the network. It really struck a chord with me since I have similar problems to handle right now and I will definetly have a closer look at [his approach](http://jimpurbrick.com/2018/05/22/replicated-redux-movie/).
+
+
+### React Native
+
+We also had two presentations on React Native during the first day. First, with a declarative approach for gestures and animations to improve the performances of React Native applications by [Krzysztof Magiera](https://twitter.com/kzzzf). Second, a talk by [Vincent Riemer](https://twitter.com/vincentriemer) showing how he brought React Native back to the web.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/react-native-dom.jpg" class="img-fluid img-border">
+
+The JavaScript port of the [Yoga layout engine](https://yogalayout.com/) was really impressive just like the support for animations and transitions.
+Vincent did some great work on [React Native DOM](https://github.com/vincentriemer/react-native-dom) and you should definitely keep an eye on this project.
+I haven't tried React Native in the past but the results which can be achieved with this technology were nothing short of amazing.
+
+
+
+### Right-to-left languages support @Airbnb
+
+[Maja Wichrowska](https://twitter.com/majapw) who works at Airbnb told us about a love story ending with broken hearts because of the lack of right-to-left languages support.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/rtl.jpg" class="img-fluid img-border">
+
+This feedback from the trenches showed how much work needs to be put in order to properly support right-to-left languages.
+The solution selected by Airbnb is really nice and it has a low impact of the code of the components of the application.
+It uses a CSS in JS approach (let's not judge them 😛) by combining both [react-with-styles and Aphrodite](https://github.com/airbnb/react-with-styles-interface-aphrodite).
+
+I can't wait to see it live to have a look at some details with the Chrome Devtools but it's a bit sad that web technologies require so much work to support such a basic feature for millions of users.
+
+
+### Having fun with type systems
+
+We had a look at the type systems of programming languages with a talk on subtyping and one on runtime type systems.
+It was interesting to see how easy and powerful it is to build a type system from scratch.
+It helps demystifying type systems from languages like TypeScript.
+
+
+### Universal components
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/universal-components.jpg" class="img-fluid img-border">
+
+[Kurtis Kemple](https://twitter.com/kurtiskemple) and [Samantha Bretous](https://twitter.com/samanthabretous) both came on stage with the lessons that they have learned building universal components.
+This talk was a collection of best practices to build a set of reusable components.
+How to identify which components should be a universal components and how to maintain them.
+
+
+## Day Two
+
+The second day started with a proper introduction to Reason and [Reason React](https://reasonml.github.io/reason-react/) by [Cristiano Calcagno](https://twitter.com/ccrisccris).
+It was my first time seeing proper example of Reason and how it integrates with React.
+The type system of Reason is really nice it I can't wait to try it to see how it can help on a sizeable project.
+
+### React Navigation
+
+After that [Eric Vicenti](https://twitter.com/ericvicenti) showed us how to handle the navigation in a mobile application with [React Navigation](https://reactnavigation.org). It was really interesting to have a look at the specific problems encountered with the navigation in a mobile application. Since I have only worked on web applications, I had never such issues before. From the navigation inside the stack of the views to the management of the state from various tabs, it was refreshing to see how these issues are handled.
+
+
+### The story of CodeSandbox
+
+[Ives van Hoorne](https://twitter.com/CompuIves), creator of CodeSandbox came on stage to tell us more about this [amazing success story](https://slides.com/ivesvanhoorne/react-europe ). If you have never tested CodeSandbox, give it a try. You can create and test React components in your browser in a few seconds.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/codesandbox-reason.jpg" class="img-fluid img-border">
+
+He even showed us a small demo of CodeSandbox Live and the first steps of the Reason support.
+
+
+### React and video games
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/battlefield.jpg" class="img-fluid img-border">
+
+We had a nice surprise with a short presentation by [Markus Thurlin](https://twitter.com/truppo) from DICE/EA to talk about the usage of React in the video game Battlefield 1.
+They are using React along with MobX to build all the menus in the game.
+He also explained how they connected React to their Frostbite engine.
+I would have love to see some code and more technical details regarding this integration.
+
+
+We had another related to video gameswith a talk on game development with React Native by [Evan Bacon](https://twitter.com/Baconbrix).
+Once again I was really impressed by what can be done with React Native.
+The games shown were really smooth with great animations once again.
+If you are interested in building video games with React Native and [Expo](https://expo.io/), have a look at [this presentation](https://www.youtube.com/watch?v=oHBGhHlVOI0).
+
+
+### IDEA architecture
+
+After that, [Lee Byron](https://twitter.com/leeb) made a great talk on the IDEA architecture combining some of the best practices for a modern web application.
+He started by highlighting the issues that we have all faced with some approaches like MVC and Rest and compared them with some best practices adopted by the React community like the use of immutability with Immutable.js, pure functions, the Flux pattern with Redux and even GraphQL.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/idea.jpg" class="img-fluid img-border">
+
+This awesome talk by Lee, who worked on some of these projects, really brought all the pieces of this architecture together.
+
+
+### WebAssembly
+
+We also had a look at WebAssembly thanks to [Sven Sauleau](https://twitter.com/svensauleau).
+It was nice to have an expert showing an overview of WebAssembly and the state of the Web Assembly ecosystem.
+This presentation was perfect in order to know how to get started with WebAssembly, some of its limitations and the expected features which will arrive soon.
+
+Giving developers the ability to reuse low level code in WebAssembly will be a huge opportunity for the web.
+You can also have a look at [the talk by Marcus O'Brien from AutoCAD](https://www.youtube.com/watch?v=D4fNcX0Q9gA) at Google I/O 2018 earlier this month showing the evolution of AutoCAD and how they can now share some code between the desktop and the web version. Their customers can now open 25 year old files directly in the browsers thanks to WebAssembly.
+
+
+
+### Blending design and code together
+
+[Devin Abbott](https://twitter.com/dvnabbott), another speaker from Airbnb, showed us once again how Airbnb is trying to bridge the gap between design and code.
+
+Airbnb was already behind [React Sketchapp](https://github.com/airbnb/react-sketchapp) used to render React components directly in [Sketch](https://www.sketchapp.com/). With React Sketchapp, you can share a common set of components between your designers and your developers and you can even make remote calls to [load real data](https://github.com/airbnb/react-sketchapp/tree/master/examples/profile-cards-graphql).
+
+In Devin's presentation, things went even further. Instead of writing code that the designers could manipulate, he showed us a new tool named Lona.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/lona.png" class="img-fluid">
+
+[Lona](https://github.com/airbnb/Lona) is a tool used to define design systems and to generate cross-platform user interface and even Sketch files. It defines a cross-platform ```.component``` data-format, a component system development environment and a compiler used to generate code to use these components.
+
+Support is planned for Swift, Kotlin and React code generation to re-use these components on both mobile and web applications. Lona is a very young project so use at your own risk for now. I can't wait to see an industrialized version of both React Sketchapp and Lona in the future.
+
+
+### Moving forward
+
+[Sunil Pai](https://twitter.com/threepointone), author of Glamor, came with a call to arms for enhancements to the developer experience. Asking us to stop arguying about the framework of the day (or CSS in JS), he advocated a higher way of developing applications by stopping to write most code manually and instead relying on better tools.
+
+<img src="{{ site.url }}/img/posts/2018/05/22/react-europe-2018/stop-coding.jpg" class="img-fluid">
+
+It was a [really inspirational talk](https://www.youtube.com/watch?v=WYWVGQKnz5M) that I invite you all to watch.
+
+
+## Wrapping it up
+
+I had a great time at React Europe and I am looking forward to the 2019 edition. Videos of the talk should now be available on Youtube. Don't forget to have a look on Twitter to find the slides of some of the speakers.
+
+This was a great conference that I would recommend to anyone working in the React community today. I hope to attend again in the future once I'm done applying some of the great tricks I've learned this week 😛

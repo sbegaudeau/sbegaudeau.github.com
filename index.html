@@ -5,6 +5,7 @@ subtitle: Web Development and Modeling Consultant
 image: /img/homepage/homepage-bg.jpg
 ---
 {% for post in paginator.posts %}
+{% unless post.draft %}
 <div class="post-preview">
   {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
   <a href="{{ post.url | relative_url }}">
@@ -18,6 +19,7 @@ image: /img/homepage/homepage-bg.jpg
   <p class="post-meta">Posted by <a href="/about">{{ post.author }}</a> on {{ post.date | date: date_format }}</p>
 </div>
 <hr>
+{% endunless %}
 {% endfor %}
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
