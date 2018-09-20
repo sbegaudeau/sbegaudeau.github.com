@@ -7,6 +7,7 @@ date: 2018-02-26 18:23:57 +0200
 description: "Fifth part of an overview of the Chrome Devtools."
 image: "/img/posts/2018/02/26/chrome-devtools-part5/performance-preview.png"
 alt: "Chrome Devtools - Performance And Memory"
+include_obeo_rss: true
 ---
 In this post, we will see how to detect issues with the user experience of your web application with the `Performance` and `Memory` tabs in the Chrome Devtools.
 

@@ -7,6 +7,7 @@ date: 2017-11-30 10:06:30 +0200
 description: "Second part of an overview of the Chrome Devtools."
 image: "/img/posts/2017/11/30/chrome-devtools-part2/console-stringsub-and-css.png"
 alt: "Chrome Devtools - Console"
+include_obeo_rss: true
 ---
 After reviewing [how to debug the DOM]({{ site.url }}/2017/11/25/chrome-devtools-part1.html) in the first part of our overview of Chrome Devtools, in this second part we will have a look at the `Console`. A `Console` tab is available both as a main tab at the top of the Devtools and as a drawer at the bottom of all the other tabs. Both versions are identical and they provide the same features.
 

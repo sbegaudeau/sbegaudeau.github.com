@@ -6,8 +6,11 @@ image: /img/presentations/presentations-bg.jpg
 permalink: /presentations/
 ---
 
-You can find here the list of some of my presentations done in various conferences.
+You can find here the list of some of my presentations done in various conferences (9 times in 🇩🇪, 7 times in 🇫🇷,  twice in 🇺🇸 and once in 🇬🇧).
 
+* [A GraphQL API for EMF](https://www.eclipsecon.org/europe2018/sessions/graphql-api-emf) - EclipseCon Europe, Oct 2018
+* [Modeling tools go up to the cloud...](https://www.eclipsecon.org/europe2018/sessions/modeling-tools-go-cloud…) - EclipseCon Europe, Oct 2018
+* Bringing Eclipse Sirius in Theia and Che - Che and Theia day, Oct 2018
 * [When user experience encounters delightful design](https://www.siriuscon.org) - SiriusCon, Nov 2017
 * [All About UX In Sirius](https://www.eclipsecon.org/europe2017/session/all-about-ux-sirius) - EclipseCon Europe, Oct 2017
 * [Libérée! Délivrée! ou Comment devenir développeuse open source ?](https://devfest.gdgnantes.com/schedule/day1?sessionId=2061) DevFest Nantes, Oct 2017

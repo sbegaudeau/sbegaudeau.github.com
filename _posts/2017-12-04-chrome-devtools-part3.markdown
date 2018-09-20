@@ -7,6 +7,7 @@ date: 2017-12-04 17:00:30 +0200
 description: "Third part of an overview of the Chrome Devtools."
 image: "/img/posts/2017/12/04/chrome-devtools-part3/sources-hover.png"
 alt: "Chrome Devtools - Sources"
+include_obeo_rss: true
 ---
 After having a look at the [debugging of the DOM]({{ site.url }}/2017/11/25/chrome-devtools-part1.html) first and then all [the secrets of the Console]({{ site.url }}/2017/11/30/chrome-devtools-part2.html) in the second part, in the third part of this analysis of the Chrome Devtools, we will detail the tooling provided by Chrome to view, edit and debug our code thanks to the `Sources` tab.
 

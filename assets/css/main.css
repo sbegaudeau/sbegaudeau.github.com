@@ -5,3 +5,9 @@
 .img-border {
   border: 1px solid black;
 }
+
+pre {
+  font-size: 70%;
+  padding: 5px 10px;
+  box-shadow: 0 1px 4px 0 rgba(31, 45, 61, 0.15);
+}

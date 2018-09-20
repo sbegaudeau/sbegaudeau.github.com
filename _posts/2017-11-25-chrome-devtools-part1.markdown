@@ -7,6 +7,7 @@ date: 2017-11-25 14:06:30 +0200
 description: "First part of an overview of the Chrome Devtools."
 image: "/img/posts/2017/11/25/chrome-devtools-part1/devtools-menu.png"
 alt: "Chrome Devtools - Elements"
+include_obeo_rss: true
 ---
 Most web developers should know it by now but the Chrome web browser embeds an amazing set of development tools. The Chrome DevTools are organized thanks to a collection of tabs used to group relevant tools in categories. In this post, we will start reviewing some of those tools.
 
