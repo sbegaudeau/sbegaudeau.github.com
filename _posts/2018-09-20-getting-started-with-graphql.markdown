@@ -144,13 +144,13 @@ Thanks to this query, we would retrieve the following data (once serialized in J
 
 As you can see, the shape of the query will determine the shape of the result.
 
-Fields can either return Scalars or Objects, if a field returns an object (like the field ```viewer``` in the example before) you have to make a sub-selection to retrieve some of its properties. Using a schema defining the concept of ```Project``` and ```Resource```, we could retrieve a project and its resources using the following query:
+Fields can either return Scalars or Objects, if a field returns an object (like the field ```viewer``` in the example before) you have to make a sub-selection to retrieve some of its properties. Using a schema defining the concept of ```Movie``` and ```Actor```, we could retrieve a movie and its actors using the following query:
 
 ```
 {
-  project {
+  movie {
     name
-    resources {
+    actors {
       name
     }
   }
@@ -161,18 +161,26 @@ This query would produce the following result:
 
 ```
 {
-  "project": {
-    "name": "Test Project",
-    "resources": [
-      { "name": "LICENSE.md" },
-      { "name": "README.md" },
-      { "name": "src" }
+  "movie": {
+    "name": "The Dark Knight",
+    "actors": [
+      { "name": "Christian Bale" },
+      { "name": "Heath Ledger" },
+      { "name": "Aaron Eckhart" },
+      { "name": "Michael Caine" },
+      { "name": "Maggie Gyllenhaal" },
+      { "name": "Gary Oldman" },
+      { "name": "Morgan Freeman" },
+      { "name": "Monique Gabriela Curnen" },
+      { "name": "Ron Dean" },
+      { "name": "Cillian Murphy" }
     ]
   }
 }
 ```
 
-In this situation, since the field ```resources``` returns a list, the fields requested are requested on each element of the list.
+
+In this situation, since the field ```actors``` returns a list, the fields requested are requested on each element of the list.
 
 ### Arguments
 
@@ -180,23 +188,24 @@ You also have the ability to give arguments to the fields of your query to chang
 
 ```
 {
-  project(id: "1000") {
+  movie(id: "1000") {
     name
-    resources(kind: FOLDER) {
+    actors(kind: WOMAN) {
       name
     }
   }
 }
 ```
 
-Here the argument ```id``` is used to select a specific project while the argument ```kind``` can be used to filter the resources returned. We may thus obtain the following result for this query:
+Here the argument ```id``` is used to select a specific movie while the argument ```kind``` can be used to filter the actors returned. We may thus obtain the following result for this query:
 
 ```
 {
-  "project": {
-    "name": "Test Project",
-    "resources": [
-      { "name": "src" }
+  "movie": {
+    "name": "The Dark Knight",
+    "actors": [
+      { "name": "Maggie Gyllenhaal" },
+      { "name": "Monique Gabriela Curnen" }
     ]
   }
 }
@@ -204,51 +213,51 @@ Here the argument ```id``` is used to select a specific project while the argume
 
 ### Aliases
 
-Since the schape of the query determines the structure of the response, we can encounter some conflicts. In order to solve this issue, you can use aliases. Here, we want to retrieve two projects at once and to prevent any issue, we can assign an alias to rename each project.
+Since the schape of the query determines the structure of the response, we can encounter some conflicts. In order to solve this issue, you can use aliases. Here, we want to retrieve two movies at once and to prevent any issue, we can assign an alias to rename each movie.
 
 ```
 {
-  test: project(id: "1000") {
+  thedarkknight: movie(id: "1000") {
     name
   }
-  sample: project(id: "1300") {
+  americanpsycho: movie(id: "1300") {
     name
   }
 }
 ```
 
-We can see that the structure of the JSON response uses ```test``` and ```sample``` instead of two occurrences of the field ```project``` which would produce an invalid response.
+We can see that the structure of the JSON response uses ```thedarkknight``` and ```americanpsycho``` instead of two occurrences of the field ```movie``` which would produce an invalid response.
 
 ```
 {
-  "test": {
-    "name": "Test Project"
+  "thedarkknight": {
+    "name": "The Dark Knight"
   },
-  "sample": {
-    "name": "Sample Project"
+  "americanpsycho": {
+    "name": "American Psycho"
   }
 }
 ```
 
 ### Fragments
 
-If you want to retrieve multiple entities of the same kind, you may want to always retrieve the same set of fields from those entities. In the previous example, we asked for two projects and we had to repeat the fields requested from those projects.
+If you want to retrieve multiple entities of the same kind, you may want to always retrieve the same set of fields from those entities. In the previous example, we asked for two movies and we had to repeat the fields requested from those movies.
 
-With GraphQL you can use a fragment to define a specific set of fields to retrieve on a type. Then you can use this fragment in other parts of your query. In the example below, you can see that we want to retrieve, for both projects, their name and the name of their resources.
+With GraphQL you can use a fragment to define a specific set of fields to retrieve on a type. Then you can use this fragment in other parts of your query. In the example below, you can see that we want to retrieve, for both movies, their name and the name of their actors.
 
 ```
 {
-  test: project(id: "1000") {
-    ...projectFields
+  thedarkknight: movie(id: "1000") {
+    ...movieFields
   }
-  sample: project(id: "1300") {
-    ...projectFields
+  americanpsycho: movie(id: "1300") {
+    ...movieFields
   }
 }
 
-fragment projectFields on Project {
+fragment movieFields on Movie {
   name
-  resources {
+  actors {
     name
   }
 }
@@ -261,64 +270,61 @@ With fragments, you can write complex queries much more easily.
 GraphQL offers the support of dynamic arguments in order to let you define a query which can be reused with various arguments. This way you won't have to concatenate pieces of queries with user-provided parameters to create your GraphQL query. This would prevent GraphQL injection security issues by sanitizing the arguments provided.
 
 ```
-query projectAndResources($id: String) {
-  project(id: $id) {
+query movieAndActors($id: String) {
+  movie(id: $id) {
     name
-    resources {
+    actors {
       name
    }
   }
 }
 ```
 
-A query can also have a name, here ```projectAndResources``` in order to let you log some information more easily for example.
+A query can also have a name, here ```movieAndActors```, in order to let you log some information more easily for example.
 
 ## Mutations
 
 Queries are only used in order to request some data from a server, they are not supposed to produce any side effect just like GET requests.
 
-If you want to modify the state of the server, you have to use a ```Mutation```. Mutations are similar to queries but they will use the arguments supplied to change things, for example here, to create a new project. A mutation will also define the shape of the response returned once the operation has been performed. Here, I want to create a new project and to retrieve its name along with the name of its resources.
+If you want to modify the state of the server, you have to use a ```Mutation```. Mutations are similar to queries but they will use the arguments supplied to change things, for example here, to create a new movie. A mutation will also define the shape of the response returned once the operation has been performed. Here, I want to create a new movie and to retrieve its name along with the name of its actors.
 
 ```
 mutation {
-  createProject(name: "Test Project") {
+  createMovie(name: "Captain Marvel") {
     name
-    resources {
+    actors {
       name
     }
   }
 }
 ```
 
-In this situation, the newly created project is empty but it could have been initialized with some data.
+In this situation, the newly created movie is empty but it could have been initialized with some data.
 
 ```
 {
-  "createProject": {
-    "name": "Test Project",
-    "resources": []
+  "createMovie": {
+    "name": "Captain Marvel",
+    "actors": []
   }
 }
 ```
 
-There is another key difference between queries and mutations, queries may be executed in parallel while mutation will be executed one after the other. You could thus send the following mutation to a server which would create a project, a folder and a file.
+There is another key difference between queries and mutations, queries may be executed in parallel while mutation will be executed one after the other. You could thus send the following mutation to a server which would create a movie, and some actors.
 
 ```
 mutation {
-  createProject(name: "Test Project") {
+  createMovie(name: "Captain Marvel") {
     name
   }
-  createFolder(projectName: "Test Project", name: "src") {
+  createActor(movieName: "Captain Marvel", name: "Brie Larson") {
     name
   }
-  createFile(projectName: "Test Project", containerPath: "/src", name: "app.js") {
+  createActor(movieName: "Captain Marvel", name: "Lee Pace") {
     name
-    container {
-      name
-    }
-    project {
-      name
-    }
+  }
+  createActor(movieName: "Captain Marvel", name: "Samuel L. Jackson") {
+    name
   }
 }
 ```
@@ -427,7 +433,7 @@ In order to retrieve all the actors who have made a movie with Christian Bale, w
 }
 ```
 
-And it would give me the following result:
+And it would give us the following result (with way more movies and actors):
 
 ```
 {
@@ -439,7 +445,14 @@ And it would give me the following result:
         "actors": [
           { "name": "Christian Bale" },
           { "name": "Heath Ledger" },
-          { "name": "Michael Caine" }
+          { "name": "Aaron Eckhart" },
+          { "name": "Michael Caine" },
+          { "name": "Maggie Gyllenhaal" },
+          { "name": "Gary Oldman" },
+          { "name": "Morgan Freeman" },
+          { "name": "Monique Gabriela Curnen" },
+          { "name": "Ron Dean" },
+          { "name": "Cillian Murphy" }
         ]
       },
       {
@@ -449,6 +462,15 @@ And it would give me the following result:
           { "name": "Jared Leto" },
           { "name": "Reese Witherspoon" },
           { "name": "Willem Dafoe" }
+        ]
+      },
+      {
+        "name": "The Prestige",
+        "actors": [
+          { "name": "Hugh Jackman" },
+          { "name": "Christian Bale" },
+          { "name": "Michael Caine" },
+          { "name": "Piper Perabo" }
         ]
       }
     ]
