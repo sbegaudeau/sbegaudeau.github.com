@@ -7,7 +7,7 @@ date: 2018-09-20 10:58:57 +0200
 description: "From REST to GraphQL"
 image: "/img/posts/2018/09/20/getting-started-with-graphql/graphql-preview.png"
 alt: "Getting started with GraphQL"
-include_obeo_rss: false
+include_obeo_rss: true
 ---
 
 # From REST...
