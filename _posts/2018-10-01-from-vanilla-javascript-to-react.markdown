@@ -76,7 +76,7 @@ document.getElementById('app').appendChild(element);
 
 # The foundations of React
 
-Most React tutorials will let you start by using all the wonders of React directly. In this post, we will go for another approach as we will start by writing some React code that you may never write ever again in order to have a better understanding of the way React works.
+Most React tutorials will let you start by using all the wonders of React directly. We will go for another approach as we will start by writing some React code that you may never write ever again in order to have a better understanding of the way React works.
 
 React has been created with the web in mind and as such, at its core, some of its API feel like the DOM. To illustrate this, we will have a look at one of the most important React API, ```React.createElement```.
 
@@ -240,4 +240,6 @@ const props = {
 ReactDOM.render(<h1 {...props}/>, document.getElementById('app'));
 ```
 
-In this post, you have seen how you can get started in React coming from a regular JavaScript background. Next week, we will see how to move forward with more dynamic code. For more information regarding React or to be sure not to miss an update, follow me on [twitter](https://www.twitter.com/sbegaudeau).
+Now that we have rendered our first piece of virtual DOM with React using JSX, we are ready to see how we could build a basic application using React. Next week, we will see how to move forward with more dynamic code using React components.
+
+For more information regarding React or to be sure not to miss an update, follow me on [twitter](https://www.twitter.com/sbegaudeau).
