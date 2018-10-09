@@ -4,9 +4,7 @@ title:  "From Vanilla JavaScript to React"
 subtitle: "Understanding React from scratch"
 author: "Stéphane Bégaudeau"
 date: 2018-10-01 11:25:37 +0200
-description: "Understanding React from scratch"
 image: "/img/posts/2018/10/01/from-vanilla-javascript-to-react/react-preview.png"
-alt: "From Vanilla JavaScript to React"
 include_obeo_rss: false
 ---
 React is a JavaScript framework used to build user interfaces. It can be used to create JavaScript applications by manipulating dynamically the content of the page. The browser already provides an API to create elements in the page, the DOM, so newcomers may wonder what does React bring to the table and how it relates to the DOM.

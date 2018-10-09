@@ -4,9 +4,7 @@ title:  "Chrome Devtools - Part 4"
 subtitle: "Communication is key"
 author: "Stéphane Bégaudeau"
 date: 2018-02-22 11:23:57 +0200
-description: "Fourth part of an overview of the Chrome Devtools."
 image: "/img/posts/2018/02/22/chrome-devtools-part4/screenshot-preview.png"
-alt: "Chrome Devtools - Network"
 include_obeo_rss: true
 ---
 After our tour of the Chrome Devtools Console, we can now have a look at the `Network` tab. This tab will display all communication between the current page and any server.

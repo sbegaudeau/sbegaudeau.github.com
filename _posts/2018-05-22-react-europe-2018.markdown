@@ -4,9 +4,7 @@ title:  "React Europe 2018"
 subtitle: "Highlights from the React Europe conference"
 author: "Stéphane Bégaudeau"
 date: 2018-05-22 22:23:57 +0200
-description: "Highlights from the React Europe conference"
 image: "/img/posts/2018/05/22/react-europe-2018/react-europe-preview.jpg"
-alt: "Highlights from the React Europe conference"
 include_obeo_rss: true
 ---
 
