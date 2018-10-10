@@ -4,7 +4,7 @@ title:  "First React component"
 subtitle: "Let's move from static to dynamic React code"
 author: "Stéphane Bégaudeau"
 date: 2018-10-08 09:46:11 +0200
-image: "/img/posts/2018/02/22/chrome-devtools-part4/screenshot-preview.png"
+image: "/img/posts/2018/10/08/first-react-component/react-preview.png"
 include_obeo_rss: false
 ---
 After a [first part](/2018/10/01/from-vanilla-javascript-to-react.html) where we have seen how to get move from vanilla JavaScript to React, let's see how we can create real React components.
