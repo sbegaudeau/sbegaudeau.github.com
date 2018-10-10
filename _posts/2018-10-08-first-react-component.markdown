@@ -203,7 +203,7 @@ ReactDOM.render(<UserList users={users} />, document.getElementById('app'));
 
 As we have seen, you can define your React components as regular JavaScript functions but you could also use [ECMAScript 2015 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) too. Using a class, the code of our functional component can be executed thanks to a method named ```render```. In this method, we will retrieve the ```props``` object thanks to ```this.props``` since the method ```render``` does not have any parameter.
 
-We could transform one of our previous example which was using a stateless functionnal component...
+We could transform one of our previous example which was using a stateless functional component...
 
 ```
 import React from 'react';
