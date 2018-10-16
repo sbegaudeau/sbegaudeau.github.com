@@ -8,29 +8,31 @@ image: "/img/posts/2018/10/15/handling-events-in-react/react-preview.png"
 include_obeo_rss: false
 ---
 
-Now that have seen how to create stateless and stateful React components, we are going to see how to handle DOM events with a class-based component. You can handle events with React is a similar fashion as with DOM elements. With JSX, you will have to use properties using the camel-case version of the name of the event that you want to handle. On top of that, you won't give this property a string with the JavaScript to call but instead a reference to the function to execute.
+Now that have seen how to create [stateless and stateful React components](/2018/10/08/first-react-component.html), we are going to see how to handle DOM events with a class-based component. You can handle events with React in a similar fashion as with DOM elements with some minor differences.
+
+With JSX, you will have to use properties using the camel-case version of the name of the event that you want to handle. On top of that, you won't give this property a string with the JavaScript to call but instead a reference to the function to execute.
 
 In this example, showing regular HTML and JavaScript, we have to use the ```onclick``` attribute and a string containing the JavaScript expression that we want to execute when the button will be clicked.
 
 ```
-// DOM
-<button onclick="doSomething()"> // onclick uses a string
+// DOM, onclick uses a string
+<button onclick="doSomething()">
   Do Something
 </button>
 ```
 
-While in JSX, we will manipulate the button thanks to a JavaScript-like API which requires us to use the camel-case name of the event ```onClick``` and a reference to the function to be executed.
+While in JSX, we will handle a click on the button thanks to a JavaScript-like API which requires us to use the camel-case name of the event ```onClick``` and a reference to the function to be executed.
 
 ```
-// JSX
-<button onClick={doSomething}> // onClick uses a function
+// JSX, onClick uses a function
+<button onClick={doSomething}>
   Do Something
 </button>
 ```
 
 ## Binding
 
-Most of the time, you will use event handlers in order to update a state in a class-based component. In such situation, the event handler used will need to be bound to the class manually. Otherwise ```this``` will be undefined inside of the event handler.
+Most of the time, you will use methods to handle events in order to update a state in a class-based component. In such situation, the method used will need to be bound to the class manually. Otherwise ```this``` will be undefined inside of it.
 
 ```
 class Counter extends Component {
@@ -56,9 +58,7 @@ class Counter extends Component {
   }
 }
 ```
-
-You could be tempted to write your event handler by binding it directly in the JSX code but you should be careful, such solution would work but it would also create a new instance of the event handler each time the component is rendered. As a result, you would most likely encounter a performance issue later.
-
+You could be tempted to write your event handler by binding it directly in the JSX code but you should be careful, such solution would work but it would also create a new instance of the function each time the component is rendered. As a result, you would most likely encounter a performance issue later.
 
 ```
 class View extends React.Component {
@@ -68,7 +68,7 @@ class View extends React.Component {
   }
 
   render() {
-    // Do not bind the event handler here to prevent performance issue
+    // Do not bind the method here to prevent performance issue
     return (
       <button onClick={this.handleClick.bind(this)}>
         Count: {this.state.count}
@@ -81,19 +81,17 @@ class View extends React.Component {
   }
 }
 ```
-
 You may have noticed that in the previous example, we have used ```setState``` in a new way by using a function as the argument instead of a value.
-
 
 ## Updating the state
 
-In the previous article, we have seen that we can call ```setState(newState)``` to create a state change which will update the state with the value of ```newState```. We have also seen that we can specify a callback to be used once the state has been updated, for example:
+In the [previous article](/2018/10/08/first-react-component.html), we have seen that we can call ```setState(newState)``` to create a state change which will update the state with the value of ```newState```. We have also seen that we can specify a callback to be used once the state has been updated, for example:
 
 ```
 doSomething() {
   const newState = { "key": "value" };
   this.setState(newState, () => {
-    console.log('The state has been updated: ' + this.state.key);
+    console.log('The state has been updated');
   });
 }
 ```
@@ -120,7 +118,9 @@ handleClick() {
 
 ## Controlled components
 
-In HTML, elements like ```<input type="text">``` or ```<textarea>``` maintain their own state directly in the DOM. You could ask the DOM for the current value of a text field. As we have seen it before, in React, the state is maintained in ```this.state``` and updated with ```setState```. As a result, for some elements like text fields, we have to decide where the source of truth will be. Most of the time, you should use the React state as the source of truth and thus create what is called controlled components.
+In HTML, elements like ```<input type="text">``` or ```<textarea>``` maintain their own state directly in the DOM. Thanks to this, you could ask the DOM for the current value of a text field.
+
+On the other hand, in React, the state is maintained in a class-based component using ```this.state``` and updated with ```setState```. As a result, for some DOM elements like text fields, we have to decide where the source of truth will be. Most of the time, you should use the React state as the source of truth and thus create what is called a controlled component.
 
 In the following example, we have a text field using an ```<input type="text">``` element where the value is computed from the state of the component.
 
@@ -161,7 +161,9 @@ Each time the user will type in the text field, the method ```handleChange``` wi
 
 ## Uncontrolled components
 
-Instead of managing the state in React, you could use the state of the DOM as the source of truth. With this approach, you would create an uncontrolled component which would have to keep a reference to the DOM element to access its state. You may use uncontrolled component if you have to interact with existing frameworks which may maintain some state in the DOM. A class-based uncontrolled component is an example of a relevant class-based component which would stay stateless with regard to React.
+Instead of managing the state in React, you could use the state of the DOM as the source of truth. With this approach, you would create an uncontrolled component which would have to keep a reference to the DOM element to access its state.
+
+You may use uncontrolled components if you have to interact with existing frameworks which may maintain some complex state in the DOM. A class-based uncontrolled component is an example of a relevant class-based component which would stay stateless with regard to React.
 
 To retrieve the state of the DOM, you can use the ```ref``` property with a function to set an attribute of the class to the DOM element. Then after the first rendering, you can easily access this DOM element to retrieve some information.
 
@@ -180,7 +182,7 @@ class Text extends Component {
 }
 ```
 
-Starting with React 16.3, you can use ```React.createRef()``` to create a reference much more easily. Using this approach, we can retrieve the DOM element using ```current``` in our reference. As such, the previous example could be written like this:
+Starting with React 16.3, you can use ```React.createRef()``` to create a reference to the DOM element much more easily. Using this approach, we can retrieve the DOM element using the field ```current``` in our reference. As such, the previous example could be written like this:
 
 ```
 class Text extends Component {
