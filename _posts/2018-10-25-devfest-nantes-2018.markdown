@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Devfest Nantes 2018"
-subtitle: "Highlights from Devfest Nantes 2018"
+title:  "DevFest Nantes 2018"
+subtitle: "Highlights from DevFest Nantes 2018"
 author: "Stéphane Bégaudeau"
 date: 2018-10-25 7:05:17 +0200
 image: "/img/posts/2018/10/25/devfest-nantes-2018/devfest-preview.png"
