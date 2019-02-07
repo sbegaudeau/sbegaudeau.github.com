@@ -25,7 +25,7 @@ Since I am contributing to [multiple projects](https://accounts.eclipse.org/user
 <img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/sirius-che.png" class="img-fluid img-border">
 </a>
 
-I have used Eclipse Che for a couple of minutes in the past but I never tried to use it for real as my main development environment so I was very existed by this opportunity. During one day, I've used Eclipse Che to build, deploy and debug microservices and it was a pleasure. Nothing to install or configure on my computer, I just had to open CodeReady Workspaces in my browser, select an already configured tooling configuration with everything to create microservices and I was ready to go in a couple of seconds.
+I have used Eclipse Che for a couple of minutes in the past but I never tried to use it for real as my main development environment so I was very excited by this opportunity. During one day, I've used Eclipse Che to build, deploy and debug microservices and it was a pleasure. Nothing to install or configure on my computer, I just had to open CodeReady Workspaces in my browser, select an already configured tooling configuration with everything to create microservices and I was ready to go in a couple of seconds.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-workspace.png">
 <img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-workspace_th.png" class="img-fluid">
