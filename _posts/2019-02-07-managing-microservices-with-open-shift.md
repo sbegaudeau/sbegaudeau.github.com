@@ -12,7 +12,7 @@ include_obeo_rss: false
 This week I had the pleasure to participate in a Red Hat workshop on microservices and [Open Shift](https://www.openshift.com) in Paris. Open Shift is an open source platform to manage microservice-based applications deployed in containers and orchestrated by Kubernetes. I had the opportunity to see some Open Shift demonstrations in the past but it was the first time I could really use it by myself.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-empty.png">
-<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-empty.png" class="img-fluid">
+<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-empty_th.png" class="img-fluid">
 </a>
 
 For this workshop, we also used a brand new Red Hat product named [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview/). I was happy to discover that CodeReady Workspaces is in fact the Red Hat product built on top of the open source cloud-based IDE [Eclipse Che](https://www.eclipse.org/che/).
@@ -28,25 +28,25 @@ Since I am contributing to [multiple projects](https://accounts.eclipse.org/user
 I have used Eclipse Che for a couple of minutes in the past but I never tried to use it for real as my main development environment so I was very existed by this opportunity. During one day, I've used Eclipse Che to build, deploy and debug microservices and it was a pleasure. Nothing to install or configure on my computer, I just had to open CodeReady Workspaces in my browser, select an already configured tooling configuration with everything to create microservices and I was ready to go in a couple of seconds.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-workspace.png">
-<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-workspace.png" class="img-fluid">
+<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-workspace_th.png" class="img-fluid">
 </a>
 
 After that I could start working on my Spring and Node services without having to leave my web browser.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-spring.png">
-<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-spring.png" class="img-fluid">
+<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/codeready-workspaces-spring_th.png" class="img-fluid">
 </a>
 
 From our instance of CodeReady Workspaces, we could connect to an Open Shift instance created for this workshop and deploy our microservices using the [Fabric8 Maven plugin](https://maven.fabric8.io). From there, we could open the Open Shift dashboard to have a look at our microservices.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard.png">
-<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard.png" class="img-fluid">
+<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard_th.png" class="img-fluid">
 </a>
 
 I was a bit lost in the beginning with all the menus, pages and information available in Open Shift but after a couple of minutes, it is quite easy to find everything you need.  After a tour of Open Shift during which we have seen how to scale manually the number of instances of our services, we had a look at the integration of liveness and readyness probes to monitor our application.
 
 <a href="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard-2.png">
-<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard-2.png" class="img-fluid">
+<img src="{{ site.url }}/img/posts/2019/02/07/managing-microservices-with-open-shift/open-shift-dashboard-2_th.png" class="img-fluid">
 </a>
 
 Open Shift was then watching for issues with our services and relaunch them quickly if needed. It was also fun to kill instances on purpose and see Open Shift keep the whole application up and running by starting new ones instantanously.
