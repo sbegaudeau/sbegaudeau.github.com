@@ -41,14 +41,14 @@ Here are the four interfaces involved:
 Think of Publisher and Subscriber as a reactive version of Iterable and Iterator.
 The main difference is that instead of requesting data from an Iterable thanks to its Iterator, we can subscribe to a Publisher thanks to a Subscriber to receive new data when it will be available.
 The Publisher can also send an error to its subscribers to terminate the sequence because an invalid situation has occurred.
-The publisher can also indicate that there won't be anymore data by indicating that the sequence is now terminated.
+The publisher can also indicate that there won't be any more data by indicating that the sequence is now terminated.
 It is thus quite easy for the subscriber to handle those situations.
 
 The Subscription allows the Subscriber and Publisher to setup some details related to their exchange.
 For example, a Subscriber can let a Publisher know that it is sending more data than what the Subscriber can currently process.
 The Publisher can then adapt the volume of data sent to match the capacity of the Subscriber.
 
-Finally a Processor acts as both a Publisher and a Subscriber in order to create advanced sequences for example.
+Finally, a Processor acts as both a Publisher and a Subscriber in order to create advanced sequences for example.
 This new API is a push-based API, as the consumer of the data, I only have to express what I will do with the data when it will be available.
 The publisher can freely determine when it will send data.
 
@@ -59,7 +59,7 @@ In this situation, blocking APIs are an issue.
 To fix this, servers tend to create new threads and move the blocking code to those threads which works but also create a large set of idle threads.
 This is why the Spring community has introduced a new stack to build web servers based on Reactor.
 
-Reactor is based on two majors implementations of Publisher, Mono and Flux.
+Reactor is based on two major implementations of Publisher, Mono and Flux.
 A Mono represents a sequence of 0..1 element while a Flux is used for sequences of 0..n elements.
 Those reactive concepts are especially powerful to build asynchronous and non-blocking architecture.
 Just like with Optional and Stream, if you don't subscribe to a Publisher nothing will happen.
@@ -73,7 +73,7 @@ They may look similar to the Optional and Stream API but they can do much more.
 In order to understand the various operations that can be performed on reactive streams, the community has done an amazing job to write great documentation.
 This documentation comes with marble diagrams which show a visual representation of the behavior of an operation thanks to high quality SVG.
 Yet be prepared, while some are quite easy to understand others are a bit intimidating.
-Event the most complex ones are still of a great help in order to understand what is going on.
+Even the most complex ones are still of a great help in order to understand what is going on.
 I have included a couple of those marble diagrams from the official Reactor documentation below.
 
 <img src="{{ site.url }}/img/posts/2020/04/29/reactive-programming-with-reactor/flux.svg" class="img-fluid">
@@ -152,7 +152,7 @@ even.mergeWith(odd).subscribe(System.out::print);
 // Result: 12345678
 ```
 
-In case we need to connect to other framewords which are expecting a CompletableFuture, we can convert a Mono or a Flux quite easily.
+In case we need to connect to other frameworks which are expecting a CompletableFuture, we can convert a Mono or a Flux quite easily.
 Of course, you will have to ensure that you Flux is not infinite, otherwise you will have to wait a long time...
 
 ```
@@ -167,7 +167,7 @@ You could thus quite easily build a multiplayer game waiting for two participant
 For that, you can use `publish` to create a ConnectableFlux which provides additional features to manage subscriptions such as `refCount` to wait for a specific number of subscribers.
 
 With the following code, you could see that both subscriptions occur before the Flux send any value.
-Once the Publisher start sending values, both Subscribers receive them simultanously.
+Once the Publisher start sending values, both Subscribers receive them simultaneously.
 
 ```
 var stringFlux = Flux.just("first", "second", "third")
@@ -198,7 +198,7 @@ Mono.just("first")
     .subscribe(System.out::println);
 ```
 
-Now, let's consider that you want to build a notification system, you may not want to receive every single notifications that has ever been sent just because you subscribed to the notification Flux.
+Now, let's consider that you want to build a notification system, you may not want to receive every single notification that has ever been sent just because you subscribed to the notification Flux.
 In such situation, you would like to receive only the new notifications.
 For that, Reactor allows you to define hot sequences of data.
 Contrary to cold ones which would start sending data from the beginning to each new subscriber, hot ones will only send the new data.
@@ -224,7 +224,7 @@ processor.onNext("third");
 ```
 
 Since Reactor is dealing with asynchronous sequences of data, scheduling those quickly becomes a topic to address.
-One of the strength of Reactor is that its concepts are concurrency agnostic.
+One of the strengths of Reactor is that its concepts are concurrency agnostic.
 We have seen lot of options to create Flux or Mono and how subscribers can receive some data.
 We can just as easily transform a Flux into a ParallelFlux with a specific scheduling policy to perform some computation in parallel.
 We can even transform our ParallelFlux back into a regular Flux once the parallel work is done thanks to operators such as `ordered`.
@@ -240,7 +240,7 @@ Flux.just("first", "second", "third")
     .subscribe(System.out::println);
 ```
 
-This example is a bit stupid since the work to perform is so simple and fast that the use of a ParallelFlux is pointless but it gives you an idea of what can be done with the Reactor API.
+This example is a bit stupid since the work to perform is so simple and fast that the use of a ParallelFlux is pointless, but it gives you an idea of what can be done with the Reactor API.
 
 All those shiny new features are quite interesting but for me the best part of Reactor is its testing API.
 The ability to test easily the behavior of your Publisher is amazing.
@@ -282,7 +282,7 @@ Flux.just(1, 2).delayElements(Duration.ofHours(1));
 ```
 
 While it is not complicated, it will literally run for hours.
-We could easily write a unit test testing that we will check that we will obtain our two values but we don't want to spend hours in our continuous integration process for such a simple test.
+We could easily write a unit test testing that we will check that we will obtain our two values, but we don't want to spend hours in our continuous integration process for such a simple test.
 For those situations, Reactor also give us the ability to run tests with virtual time.
 This way, we can easily test this behavior in milliseconds instead.
 
