@@ -5,7 +5,7 @@ subtitle: "Build and deploy both frontend and backend"
 author: "Stéphane Bégaudeau"
 date: 2020-05-04 10:12:11 +0200
 image: "/img/posts/2020/05/04/multi-stage-docker-build-for-react-and-spring/server.png"
-include_obeo_rss: true
+include_obeo_rss: false
 ---
 
 Docker makes it easy to deploy web applications.
