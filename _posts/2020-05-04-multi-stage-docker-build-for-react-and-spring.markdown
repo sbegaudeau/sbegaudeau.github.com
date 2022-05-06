@@ -154,4 +154,4 @@ Then open your web browser on `http://localhost:8080` and see your web applicati
 <img src="{{ site.url }}/img/posts/2020/05/04/multi-stage-docker-build-for-react-and-spring/server.png" class="img-fluid">
 
 Now you can leverage Docker to both build and deploy you web server quite easily.
-If you have any question, don't hesitate to contact me on [Twitter](https://www.twitter.com/sbegaudeau) for more information.
+If you have any questions, don't hesitate to contact me on [Twitter](https://www.twitter.com/sbegaudeau) for more information.
