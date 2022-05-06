@@ -297,4 +297,4 @@ StepVerifier.withVirtualTime(() -> Flux.just(1, 2).delayElements(Duration.ofHour
 ```
 
 I hope that you have enjoyed that introduction to Reactive programming in Java with Reactor.
-In you have any question, don't hesitate to contact me on [Twitter](https://www.twitter.com/sbegaudeau)
+If you have any questions, don't hesitate to contact me on [Twitter](https://www.twitter.com/sbegaudeau)
