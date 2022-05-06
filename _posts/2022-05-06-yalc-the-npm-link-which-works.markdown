@@ -3,7 +3,7 @@ layout: post
 title:  "Yalc, the npm link which works"
 subtitle: "Easily manage npm packages locally"
 author: "Stéphane Bégaudeau"
-date: 2022-05-05 12:35:47 +0200
+date: 2022-05-06 19:40:47 +0200
 image: "/img/posts/2022/05/06/yalc-the-npm-link-which-works/app-first-version.png"
 include_obeo_rss: false
 ---
