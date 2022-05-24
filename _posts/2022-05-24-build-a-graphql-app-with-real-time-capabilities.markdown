@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "Build a GraphQL app with real time capabilities"
+title:  "Build a GraphQL app with real-time capabilities"
 subtitle: "GraphQL subscriptions with Spring Webflux, Netflix DGS, React and Apollo"
 author: "Stéphane Bégaudeau"
-date: 2022-05-18 19:40:47 +0200
-image: "/img/posts/2022/05/18/build-a-graphql-app-with-real-time-capabilities/playground.png"
+date: 2022-05-24 12:40:47 +0200
+image: "/img/posts/2022/05/24/build-a-graphql-app-with-real-time-capabilities/playground.png"
 include_obeo_rss: false
 ---
 
-In this blog post, we will see how you can build a simple web application with real time feedback based on [Spring Webflux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html) and React.
+In this blog post, we will see how you can build a simple web application with real-time feedback based on [Spring Webflux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html) and React.
 The frontend and the backend will communicate using a GraphQL API provided thanks to [Netflix DGS](https://netflix.github.io/dgs/) which we will leverage in the frontend using [Apollo Client](https://www.apollographql.com/docs/react).
 
 In this example, the application will only be used to send events to a server and display them.
-For that, we will first define the GraphQL API that we want to provide, then we will implement it on the backend and finally leverage it in the frontend.
+For that, we will first define the GraphQL API that we want to provide, then we will implement it on the backend, and finally leverage it in the frontend.
 
 ```
 type Query {
@@ -40,11 +40,11 @@ We will have a query to retrieve all the events created, a mutation to create ne
 
 ### Implementing our GraphQL API with Netflix DGS
 
-In order to build the backend, I've decided to go with both Spring Webflux and Netflix DGS.
+To build the backend, I've decided to go with both Spring Webflux and Netflix DGS.
 Spring Webflux is the reactive stack of the popular Spring framework based on [Reactor](https://projectreactor.io).
 It is used to build web servers with an asynchronous programming model from top to bottom.
-On top of that, I've selected Netflix DGS to provide the GraphQL support for the server.
-Netflix DGS is an integration of GraphQL Java on top of Spring (both MVC or Webflux) which provides an easy to use annotation based programming model.
+On top of that, I've selected Netflix DGS to provide GraphQL support for the server.
+Netflix DGS is an integration of GraphQL Java on top of Spring (both MVC and Webflux) which provides an easy-to-use annotation-based programming model.
 
 In this example, we will create a single datafetcher for everything related to our events.
 We will annotate this datafetcher with `@DgsComponent` to let Netflix DGS discover It.
@@ -94,7 +94,7 @@ On top of that, Netflix DGS provides support to convert asynchronous concepts us
 For this small application, I've decided not to use a database since it makes running the code sample much easier for everybody.
 Nevertheless, when you are using Spring Webflux, you need to use reactive programming all the way down with reactive drivers for the database like the [PostgreSQL R2DBC driver](https://github.com/pgjdbc/r2dbc-postgresql).
 As such, you will probably manipulate concepts such as `Mono` and `Flux` in your service layer.
-If you are not familiar with those concepts, you can learn more about them on [my post](https://www.sbegaudeau.com/2020/04/29/reactive-programming-with-reactor.html) dedicated to reactive programming.
+If you are not familiar with those concepts, you can learn more about them in [my post](https://www.sbegaudeau.com/2020/04/29/reactive-programming-with-reactor.html) dedicated to reactive programming.
 
 We will have one service named `EventService` which will be used to retrieve all the existing events using a `Mono<List<Event>>`.
 This type is used to represent the fact that we may have queried a datastore or remote service to retrieve all existing events at once.
@@ -136,20 +136,20 @@ public class EventService implements IEventService {
 }
 ```
 
-We want new users which are subscribing to our service to see all existing events and new ones instead of only received newly created events.
+We want new users which are subscribing to our service to see all existing events and new ones instead of only receiving newly created events.
 For that, we are using `Flux#concat(...)` to return all the previously created events and new ones which will be emitted later thanks to the sink.
-This will simplify the use of our API in the frontend by ensuring that users won't be required to both use the query and the subscription if they want to start displaying an initial state for the end users.
+This will simplify the use of our API in the frontend by ensuring that users won't be required to both use the query and the subscription if they want to start displaying an initial state for the end-users.
 If required, we could even make this behavior optional.
 
 
 #### Test the API using GraphQL Playground
 
 We can now launch our server and start playing with its GraphQL API.
-For that, you can try using [GraphQL Playground](https://github.com/graphql/graphql-playground), an IDE to help create GraphQL queries, mutations and subscriptions.
+For that, you can try using [GraphQL Playground](https://github.com/graphql/graphql-playground), an IDE to help create GraphQL queries, mutations, and subscriptions.
 To use it properly, we need to tell GraphQL Playground the URLs of both the HTTP endpoint used for queries and mutations and the WebSocket endpoint for our subscriptions.
 
 We can use a [GraphQL Config](https://www.graphql-config.com/docs/user/user-introduction) file to provide this information for the GraphQL Playground client.
-You just need to create a `.graphqlconfig` file with the configuration of server.
+You just need to create a `.graphqlconfig` file with the configuration of the server.
 Since we will just rely on the default endpoints provided by Netflix DGS, the configuration will look like this:
 
 ```
@@ -168,14 +168,14 @@ Since we will just rely on the default endpoints provided by Netflix DGS, the co
 }
 ```
 
-We can now start playing with our server by creating new events and see them in realtime thanks to the GraphQL subscription.
+We can now start playing with our server by creating new events and seeing them in real-time thanks to the GraphQL subscription.
 
-<a href="{{ site.url }}/img/posts/2022/05/18/build-a-graphql-app-with-real-time-capabilities/playground.png" target="_blank" rel="noopener noreferrer">
-<img src="{{ site.url }}/img/posts/2022/05/18/build-a-graphql-app-with-real-time-capabilities/playground_th.png" class="img-fluid">
+<a href="{{ site.url }}/img/posts/2022/05/24/build-a-graphql-app-with-real-time-capabilities/playground.png" target="_blank" rel="noopener noreferrer">
+<img src="{{ site.url }}/img/posts/2022/05/24/build-a-graphql-app-with-real-time-capabilities/playground_th.png" class="img-fluid">
 </a>
 
-You may want to setup [cross origin resource sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers to allow requests from locahost while testing the backend.
-For that, you can quickly provide a Spring configuration which add the proper CORS headers for requests coming from localhost with the following code:
+You may want to set up [cross-origin resource sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers to allow requests from localhost while testing the backend.
+For that, you can quickly provide a Spring configuration that adds the proper CORS headers for requests coming from localhost with the following code:
 
 ```
 @Configuration
@@ -193,7 +193,7 @@ public class CorsGlobalConfiguration implements WebFluxConfigurer {
 
 ### Leverage our GraphQL API with React and Apollo
 
-On the frontend, we will build a very basic React, Apollo Client and MaterialUI application built with Vite.
+On the frontend, we will build a very basic React, Apollo Client, and MaterialUI application built with Vite.
 For the first version, we will only perform the creation of an event and display it once it has been created on the server.
 
 First, we need to configure Apollo Client to find both our HTTP and WebSocket endpoints.
@@ -201,7 +201,7 @@ We just need to create an instance of the HTTPLink and the WebSocketLink configu
 We will then use a split link to tell Apollo Client to perform GraphQL requests against the HTTP for queries and mutations or the WebSocket endpoint for subscriptions.
 
 We are relying on `subscriptions-transport-ws` for the WebSocket protocol used to perform the requests because this is the only WebSocket protocol supported by Netflix DGS for now.
-While the alternate protocol `grahpql-ws` is not supported yet by Netflix DGS, it may be available in [the near future](https://github.com/Netflix/dgs-framework/issues/933).
+While the alternate protocol `graphql-ws` is not supported yet by Netflix DGS, it may be available [soon](https://github.com/Netflix/dgs-framework/issues/933).
 Here is the code used to configure the Apollo Client in our React application:
 
 ```
@@ -240,7 +240,7 @@ The core part of the frontend will be composed of a textfield and a button to se
 For that, we will just keep in the state of the component both the value of the textfield, with the name of the next event to send, and the list of events created previously.
 
 When the user will click on the "Create" button, a mutation will be performed.
-Using a `useEffect` hook, our component will react to the retrieval of the response to update the state with the newly event created and trigger a new rendering.
+Using a `useEffect` hook, our component will react to the retrieval of the response to update the state with the newly created event and trigger a new rendering.
 
 ```
 export const App = () => {
@@ -366,9 +366,9 @@ We could use `refetch` to fetch all events each time we create a new one but the
   }, [mutationLoading, mutationData]);
 ```
 
-#### Subscribe to the event flux for real time updates
+#### Subscribe to the event flux for real-time updates
 
-In order to provide real time updates of the events that have been created on the backend, we can leverage the GraphQL subscription.
+To provide real-time updates of the events that have been created on the backend, we can leverage the GraphQL subscription.
 We can thus subscribe to the event flux of the backend and react to the appearance of new events thanks to the `useSubscription` hook.
 
 ```
